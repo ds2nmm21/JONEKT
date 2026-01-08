@@ -3,9 +3,9 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>제이원컴퍼니 | KT 공식 매장</title>
-  <meta name="description" content="제이원컴퍼니 KT 공식 매장 — 초이스스페셜 6개월 유지 시 특별 혜택 안내">
-  <meta property="og:title" content="제이원컴퍼니 · KT 공식 매장">
+  <title>제이원컴퍼니 · KT 공식 대리점</title>
+  <meta name="description" content="제이원컴퍼니 KT 공식 대리점 — 초이스스페셜 6개월 유지 시 특별 혜택 안내">
+  <meta property="og:title" content="제이원컴퍼니 · KT 공식 대리점">
   <meta property="og:description" content="초이스스페셜 6개월 유지 + 카드조건 충족 시 기기값 0원(예시). 정확한 금액은 상담 필수.">
   <meta property="og:image" content="https://i.postimg.cc/HLNNKZz2/Kakao-Talk-20260108-165415641.jpg">
   <link rel="icon" href="/favicon.ico">
@@ -19,6 +19,8 @@
       --muted:#6b6b6b;
       --shadow: 0 12px 30px rgba(16,16,16,0.08);
       --radius:12px;
+      --kt-yellow:#ffcd00;
+      --kt-dark:#000;
     }
     *{box-sizing:border-box}
     body{margin:0;font-family:-apple-system,BlinkMacSystemFont,"Noto Sans KR",sans-serif;background:var(--bg);color:#111;-webkit-font-smoothing:antialiased}
@@ -26,19 +28,20 @@
     .wrap{max-width:1180px;margin:0 auto;padding:0 18px}
 
     /* Header */
-    header{position:sticky;top:0;z-index:120;background:linear-gradient(180deg, rgba(255,255,255,0.9), rgba(255,255,255,0.95));backdrop-filter:blur(4px);border-bottom:1px solid rgba(0,0,0,0.04)}
-    .topbar{display:flex;justify-content:space-between;align-items:center;padding:14px 0}
-    .brand{font-weight:800;color:var(--accent);font-size:20px;letter-spacing:0.2px}
+    header{position:sticky;top:0;z-index:120;background:linear-gradient(180deg, rgba(255,255,255,0.95), rgba(255,255,255,0.98));backdrop-filter:blur(4px);border-bottom:1px solid rgba(0,0,0,0.04)}
+    .topbar{display:flex;justify-content:space-between;align-items:center;padding:12px 0}
+    .brand-wrap{display:flex;align-items:center;gap:12px}
+    .brand{font-weight:900;color:var(--accent);font-size:20px;letter-spacing:0.2px}
+    .kt-badge{display:inline-flex;align-items:center;gap:8px;padding:6px 10px;border-radius:8px;background:linear-gradient(90deg,var(--kt-yellow),#ffd44d);color:var(--kt-dark);font-weight:800;font-size:13px;box-shadow:0 6px 18px rgba(0,0,0,0.06)}
+    .kt-logo{width:20px;height:20px;border-radius:4px;background:linear-gradient(180deg,#ffdf7a,#ffd100);display:inline-block}
     .contact-group{display:flex;gap:10px;align-items:center}
     .contact-btn{display:inline-flex;align-items:center;gap:10px;padding:10px 14px;border-radius:10px;font-weight:800;color:#fff}
     .call{background:linear-gradient(180deg,var(--accent),var(--accent-dark))}
-    .kakao{background:#ffcd00;color:#000}
-    .topnote{font-size:13px;color:var(--muted);margin-right:12px}
+    .kakao{background:var(--kt-yellow);color:var(--kt-dark)}
+    .topnote{font-size:13px;color:var(--muted);margin-left:8px}
 
     /* Hero */
-    .hero{
-      margin:22px 0;border-radius:16px;overflow:hidden;position:relative;display:flex;align-items:center;gap:24px;box-shadow:var(--shadow);min-height:260px;background:linear-gradient(180deg, rgba(0,0,0,0.03), rgba(255,255,255,0.02));
-    }
+    .hero{margin:22px 0;border-radius:16px;overflow:hidden;position:relative;display:flex;align-items:center;gap:24px;box-shadow:var(--shadow);min-height:260px;background:linear-gradient(180deg, rgba(0,0,0,0.03), rgba(255,255,255,0.02));}
     .hero .bg{position:absolute;inset:0;background-image:linear-gradient(180deg, rgba(0,0,0,0.28), rgba(0,0,0,0.06)), url('https://i.postimg.cc/HLNNKZz2/Kakao-Talk-20260108-165415641.jpg');background-size:cover;background-position:center;filter:blur(2px) brightness(0.78);z-index:0}
     .hero-inner{position:relative;z-index:2;display:flex;align-items:center;justify-content:space-between;width:100%;padding:36px}
     .hero-left{max-width:68%}
@@ -66,29 +69,22 @@
     .tag{background:#f6f6f6;padding:6px 8px;border-radius:8px;color:var(--muted);font-size:13px}
     .muted{color:var(--muted);font-size:13px}
 
-    /* Auto vertical reviews (continuous, non-pausable) */
+    /* Auto vertical reviews (continuous, non-pausable) - CSS animation */
     .auto-reviews{margin-top:22px;}
     .ar-viewport{height:220px;overflow:hidden;position:relative}
-    .ar-list{margin:0;padding:0;list-style:none}
+    .ar-track{display:block}
+    .ar-inner{display:block}
     .ar-item{padding:14px 12px;border-radius:10px;background:#fff;box-shadow:0 10px 30px rgba(0,0,0,0.06);margin-bottom:12px}
     .ar-item strong{color:#f6a623}
     .ar-title{font-weight:800;margin-top:6px}
     .ar-text{color:#666;margin-top:6px;font-size:14px}
 
-    /* We'll use CSS animation for smooth continuous scroll of the entire list group.
-       Duplicate the list content in the DOM, and animate translateY of the container.
-       This animation does NOT pause on hover / touch (per request). */
-    .ar-track{display:block}
-    .ar-column{display:block}
-    .ar-anim{animation: scroll-vert 36s linear infinite; transform: translateY(0);} /* duration controls speed */
-
+    /* Scroll animation: translateY from 0 to -50% of track height (we'll duplicate content) */
+    .ar-anim{animation: scroll-vert linear infinite; transform: translateY(0);}
     @keyframes scroll-vert {
       0% { transform: translateY(0); }
-      100% { transform: translateY(-50%); } /* -50% because content duplicated */
+      100% { transform: translateY(-50%); }
     }
-
-    /* make sure clones align */
-    .ar-inner{display:block}
 
     /* Trust and FAQ */
     .trust{display:flex;gap:18px;margin-top:22px;flex-wrap:wrap}
@@ -117,8 +113,12 @@
 
   <header>
     <div class="wrap topbar">
-      <div style="display:flex;align-items:center;gap:12px">
+      <div class="brand-wrap">
         <div class="brand">제이원컴퍼니</div>
+        <div class="kt-badge" aria-hidden="true">
+          <span class="kt-logo" aria-hidden="true"></span>
+          <span>KT 공식 대리점</span>
+        </div>
         <div class="topnote">영업 10:00 ~ 20:00 · 동탄 · 평택</div>
       </div>
       <div style="display:flex;align-items:center;gap:12px">
@@ -193,10 +193,10 @@
 
     <!-- Auto vertical reviews (continuous, non-pausable) -->
     <section class="auto-reviews" aria-label="고객 후기 자동 스크롤">
-      <div class="ar-viewport" aria-hidden="false">
+      <div class="ar-viewport">
         <div class="ar-track ar-anim">
-          <div class="ar-inner" id="arInner">
-            <!-- 20개 후기 (예시) -->
+          <div class="ar-inner">
+            <!-- 20 items -->
             <div class="ar-item"><strong>★★★★★</strong><div class="ar-title">친절한 상담, 빠른 개통</div><div class="ar-text">매장 방문 후 바로 개통했습니다. 직원분 설명이 정말 친절했어요.</div></div>
             <div class="ar-item"><strong>★★★★★</strong><div class="ar-title">프로모션 혜택 만족</div><div class="ar-text">초이스스페셜 적용으로 가격 만족했습니다. 안내도 명확했어요.</div></div>
             <div class="ar-item"><strong>★★★★★</strong><div class="ar-title">빠른 응대</div><div class="ar-text">카카오톡 문의에 빠르게 답해주셔서 편하게 처리했습니다.</div></div>
@@ -216,11 +216,12 @@
             <div class="ar-item"><strong>★★★★★</strong><div class="ar-title">친절한 설명</div><div class="ar-text">기기 기능 소개를 자세히 해주셔서 만족합니다.</div></div>
             <div class="ar-item"><strong>★★★★★</strong><div class="ar-title">신속 대응</div><div class="ar-text">문의에 빠르게 답변해주셔서 좋았습니다.</div></div>
             <div class="ar-item"><strong>★★★★★</strong><div class="ar-title">프로모션 친절 안내</div><div class="ar-text">행사 조건도 상세히 설명해주셔서 이해가 쉬웠어요.</div></div>
+            <div class="ar-item"><strong>★★★★★</strong><div class="ar-title">전반적으로 만족</div><div class="ar-text">서비스·가격 모두 만족합니다. 추천합니다.</div></div>
           </div>
 
-          <!-- clone (same content) for seamless loop -->
+          <!-- clone for seamless loop -->
           <div class="ar-inner" aria-hidden="true">
-            <!-- duplicate the same 20 items -->
+            <!-- duplicate same 20 items -->
             <div class="ar-item"><strong>★★★★★</strong><div class="ar-title">친절한 상담, 빠른 개통</div><div class="ar-text">매장 방문 후 바로 개통했습니다. 직원분 설명이 정말 친절했어요.</div></div>
             <div class="ar-item"><strong>★★★★★</strong><div class="ar-title">프로모션 혜택 만족</div><div class="ar-text">초이스스페셜 적용으로 가격 만족했습니다. 안내도 명확했어요.</div></div>
             <div class="ar-item"><strong>★★★★★</strong><div class="ar-title">빠른 응대</div><div class="ar-text">카카오톡 문의에 빠르게 답해주셔서 편하게 처리했습니다.</div></div>
@@ -285,56 +286,29 @@
   </footer>
 
   <script>
-    // Ensure seamless continuous vertical scroll with CSS animation.
-    // We create the necessary layout and set animation duration depending on content height.
+    // Adjust ar-track animation duration based on content height
     (function(){
-      const viewport = document.querySelector('.ar-viewport');
       const track = document.querySelector('.ar-track');
-      if(!viewport || !track) return;
-
-      // Move inner content (we already arranged two .ar-inner blocks in HTML)
-      // Compute total height of one block and set CSS animation duration proportionally.
-      function recalc(){
-        // find first inner block height
-        const inner = track.querySelector('.ar-inner');
-        if(!inner) return;
-        const h = inner.getBoundingClientRect().height;
-        // If height is tiny, avoid zero
-        const minH = 50;
-        const height = Math.max(h, minH);
-        // set animation duration: longer content -> more time (tweak multiplier for speed)
-        // base ratio: 36s per 1000px
-        const duration = Math.max(12, Math.round((height / 1000) * 36));
-        // apply inline style to control animation speed
+      if(!track) return;
+      // measure height of first .ar-inner
+      const inner = track.querySelector('.ar-inner');
+      if(!inner) return;
+      function setDuration(){
+        const h = inner.getBoundingClientRect().height || 800;
+        // base: 36s per 1000px height -> scale accordingly
+        const duration = Math.max(12, Math.round((h/1000) * 36));
         track.style.animation = `scroll-vert ${duration}s linear infinite`;
-        // Ensure viewport shows top
-        viewport.scrollTop = 0;
       }
-
-      // Run initially and on resize
-      window.addEventListener('load', recalc);
-      window.addEventListener('resize', recalc);
-
-      // Define keyframes dynamically (attached to document)
-      const styleId = 'ar-scroll-keyframes';
-      if(!document.getElementById(styleId)){
+      window.addEventListener('load', setDuration);
+      window.addEventListener('resize', setDuration);
+      // add keyframes if not present
+      if(!document.getElementById('ar-keyframes')){
         const s = document.createElement('style');
-        s.id = styleId;
-        s.innerHTML = `
-          @keyframes scroll-vert {
-            0% { transform: translateY(0); }
-            100% { transform: translateY(-50%); }
-          }
-        `;
+        s.id = 'ar-keyframes';
+        s.innerHTML = `@keyframes scroll-vert { 0% { transform: translateY(0);} 100% { transform: translateY(-50%);} }`;
         document.head.appendChild(s);
       }
-
-      // IMPORTANT: Per request, do NOT pause on hover/touch/focus.
-      // (So we intentionally do NOT add listeners that set animation-play-state to paused.)
-      // However, for accessibility, add a visually hidden description for screen readers (done in HTML).
-
-      // Safety: if user wants to pause later, we can expose an API. For now it's continuous.
-
+      // Note: intentionally do NOT pause animation on hover/touch per request
     })();
   </script>
 </body>
