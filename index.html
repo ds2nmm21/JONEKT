@@ -321,8 +321,8 @@
   </div>
 
   <script>
-    // Apps Script 웹앱 URL (근호님이 제공한 URL)
-    const WEBHOOK_URL = 'https://script.google.com/macros/s/AKfycbyXwmaoQjYAhnPGwkCe6eupjpxt6vbtrbvcu38M8f0igThgC0K3FwXSmx5FiM1ltd-pjA/exec';
+    // Apps Script 웹앱 URL (최신: 근호님 제공)
+    const WEBHOOK_URL = 'https://script.google.com/macros/s/AKfycbyF6XmeVI5MX85r2Ket8DITR5jSmyPgQPjUGAbdXqBnEKz1ge0WLWvWVkluZ7MRKXD2Eg/exec';
 
     // 모달 열기/닫기
     document.getElementById('openReservation')?.addEventListener('click', function(){
@@ -356,7 +356,6 @@
         body: JSON.stringify(data)
       })
       .then(res => {
-        // Apps Script는 일반적으로 JSON 문자열을 반환하므로 시도해봄
         return res.json ? res.json() : res.text();
       })
       .then(result => {
