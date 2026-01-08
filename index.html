@@ -4,19 +4,13 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>제이원컴퍼니 | KT 전문 매장 - 기기 비교</title>
-  <meta name="description" content="제이원컴퍼니 KT 공식 매장 - 갤럭시 / 아이폰 / 플립 비교. 초이스스페셜 요금제 6개월 유지 시 기기값 0원 안내. 전화/카카오 바로 상담.">
+  <meta name="description" content="제이원컴퍼니 KT 공식 매장 - 기기 비교. 초이스스페셜 6개월 유지 시 기기값 0원 안내. 전화/카카오 바로 상담.">
   <meta property="og:title" content="제이원컴퍼니 · KT 공식 상담 - 기기 비교">
   <meta property="og:description" content="초이스스페셜 요금제 6개월 유지 + 카드 조건 충족 시 기기값 0원 (예시). 정확한 금액은 상담 필수.">
   <meta property="og:image" content="https://your-domain.com/og-image.jpg">
   <link rel="icon" href="/favicon.ico">
   <style>
-    :root{
-      --accent:#e60012;
-      --bg:#f5f6f8;
-      --card:#fff;
-      --muted:#666;
-      --shadow: 0 6px 18px rgba(0,0,0,0.06);
-    }
+    :root{--accent:#e60012;--bg:#f5f6f8;--card:#fff;--muted:#666;--shadow:0 6px 18px rgba(0,0,0,0.06)}
     *{box-sizing:border-box}
     body{margin:0;font-family:-apple-system,BlinkMacSystemFont,"Noto Sans KR",sans-serif;background:var(--bg);color:#222;line-height:1.45}
     header{background:var(--accent);color:#fff;padding:14px 18px;display:flex;justify-content:space-between;align-items:center;position:sticky;top:0;z-index:50}
@@ -31,6 +25,8 @@
     .hero .ctas{display:flex;gap:8px;margin-top:10px}
     .btn{background:var(--accent);color:#fff;padding:10px 14px;border-radius:8px;text-decoration:none;display:inline-block;border:0}
     .btn.secondary{background:#333;color:#fff}
+    .fixed-cta{position:fixed;right:16px;bottom:18px;display:flex;flex-direction:column;gap:8px;z-index:60}
+    .fixed-cta a{padding:10px 12px;border-radius:10px;color:#fff;text-decoration:none;display:inline-block}
     .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px;margin-top:20px}
     .card{background:var(--card);padding:14px;border-radius:12px;box-shadow:var(--shadow);overflow:hidden;transition:transform .18s ease,box-shadow .18s ease}
     .card:hover{transform:translateY(-6px);box-shadow:0 20px 40px rgba(0,0,0,0.12)}
@@ -103,8 +99,8 @@
   <section class="grid" aria-label="기기 비교">
     <!-- 카드 1 -->
     <article class="card" aria-labelledby="p1">
-      <img src="image1.jpg" alt="기기1 이미지 - 갤럭시 S25 울트라" loading="lazy">
-      <h3 id="p1">갤럭시 S25 울트라</h3>
+      <img src="IMAGE_URL_1" alt="기기1 이미지 - 갤럭시 S25 " loading="lazy">
+      <h3 id="p1">갤럭시 S25 </h3>
       <div class="price">기기값 0원</div>
       <div class="badge">초이스스페셜 6개월 유지 필수</div>
       <p class="small-note">· 카드 사용 조건: 카드사 약정/할인 적용 필요 (간단 표기)</p>
@@ -122,8 +118,8 @@
 
     <!-- 카드 2 -->
     <article class="card" aria-labelledby="p2">
-      <img src="image2.jpg" alt="기기2 이미지 - 아이폰 16 Pro" loading="lazy">
-      <h3 id="p2">아이폰 16 Pro</h3>
+      <img src="IMAGE_URL_2" alt="기기2 이미지 - 아이폰 17 " loading="lazy">
+      <h3 id="p2">아이폰 17 </h3>
       <div class="price">기기값 0원</div>
       <div class="badge">초이스스페셜 6개월 유지 필수</div>
       <p class="small-note">· 카드 사용 조건: 일부 카드사 대상(소액 결제/할부) — 상담 필요</p>
@@ -141,8 +137,8 @@
 
     <!-- 카드 3 -->
     <article class="card" aria-labelledby="p3">
-      <img src="image3.jpg" alt="기기3 이미지 - 갤럭시 Z 플립6" loading="lazy">
-      <h3 id="p3">갤럭시 Z 플립6</h3>
+      <img src="IMAGE_URL_3" alt="기기3 이미지 - 갤럭시 Z 플립7" loading="lazy">
+      <h3 id="p3">갤럭시 Z 플립7</h3>
       <div class="price">기기값 0원</div>
       <div class="badge">초이스스페셜 6개월 유지 필수</div>
       <p class="small-note">· 카드 사용 조건: 제휴카드 또는 할부 이용 시 적용 가능 (작게 표기)</p>
@@ -176,11 +172,17 @@
 
 </main>
 
+<!-- 고정 CTA (모바일/데스크톱 공통) -->
+<div class="fixed-cta">
+  <a class="btn" href="tel:01044773005" style="background:var(--accent)">📞 전화</a>
+  <a class="btn secondary" href="https://open.kakao.com/o/sJO5ztai" target="_blank" rel="noopener noreferrer" style="background:#444">💬 카카오</a>
+</div>
+
 <footer>
   © 2026 제이원컴퍼니 · KT 전문 상담 매장<br/>
   연락처: 010-4477-3005 · 카카오톡: https://open.kakao.com/o/sJO5ztai<br/>
-  매장 A (동탄): 경기도 화성시 동탄역로 150<br/>
-  매장 B (평택): 경기도 평택시 이충로35번길 22<br/>
+  매장 1 (동탄): 경기도 화성시 동탄역로 150<br/>
+  매장 2 (평택): 경기도 평택시 이충로35번길 22<br/>
   영업시간: 10:00 ~ 20:00<br/>
   ※ 본 페이지의 '0원' 표기는 예시(프로모션 조건 충족 시)이며, 실제 금액은 상담을 통해 확정됩니다.
 </footer>
@@ -231,14 +233,7 @@
     "@type":"Store",
     "name":"제이원컴퍼니 (동탄)",
     "telephone":"010-4477-3005",
-    "address":{
-      "@type":"PostalAddress",
-      "streetAddress":"동탄역로 150",
-      "addressLocality":"화성시",
-      "addressRegion":"경기도",
-      "postalCode":"",
-      "addressCountry":"KR"
-    },
+    "address":{"@type":"PostalAddress","streetAddress":"동탄역로 150","addressLocality":"화성시","addressRegion":"경기도","addressCountry":"KR"},
     "openingHours":"Mo-Su 10:00-20:00",
     "url":"https://your-domain.com"
   },
@@ -247,14 +242,7 @@
     "@type":"Store",
     "name":"제이원컴퍼니 (평택)",
     "telephone":"010-4477-3005",
-    "address":{
-      "@type":"PostalAddress",
-      "streetAddress":"이충로35번길 22",
-      "addressLocality":"평택시",
-      "addressRegion":"경기도",
-      "postalCode":"", 
-      "addressCountry":"KR"
-    },
+    "address":{"@type":"PostalAddress","streetAddress":"이충로35번길 22","addressLocality":"평택시","addressRegion":"경기도","addressCountry":"KR"},
     "openingHours":"Mo-Su 10:00-20:00",
     "url":"https://your-domain.com"
   }
