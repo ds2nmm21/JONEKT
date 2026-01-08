@@ -22,20 +22,19 @@
       --radius:12px;
     }
     *{box-sizing:border-box}
-    body{margin:0;font-family:-apple-system,BlinkMacSystemFont,"Noto Sans KR",sans-serif;background:var(--bg);color:#111}
+    body{margin:0;font-family:-apple-system,BlinkMacSystemFont,"Noto Sans KR",sans-serif;background:var(--bg);color:#111;-webkit-font-smoothing:antialiased}
     a{color:inherit;text-decoration:none}
     .wrap{max-width:1180px;margin:0 auto;padding:0 18px}
 
     /* ===== 헤더 ===== */
-    header{position:sticky;top:0;z-index:120;background:linear-gradient(180deg, rgba(255,255,255,0.85), rgba(255,255,255,0.95));backdrop-filter:blur(4px);border-bottom:1px solid rgba(0,0,0,0.04)}
+    header{position:sticky;top:0;z-index:120;background:linear-gradient(180deg, rgba(255,255,255,0.9), rgba(255,255,255,0.95));backdrop-filter:blur(4px);border-bottom:1px solid rgba(0,0,0,0.04)}
     .topbar{display:flex;justify-content:space-between;align-items:center;padding:14px 0}
     .brand{font-weight:800;color:var(--accent);font-size:20px;letter-spacing:0.2px}
     .contact-group{display:flex;gap:10px;align-items:center}
     .contact-btn{display:inline-flex;align-items:center;gap:10px;padding:10px 14px;border-radius:10px;font-weight:800;color:#fff}
     .call{background:linear-gradient(180deg,var(--accent),var(--accent-dark))}
     .kakao{background:#ffcd00;color:#000}
-    /* 작은 텍스트 */
-    .topnote{font-size:13px;color:var(--muted)}
+    .topnote{font-size:13px;color:var(--muted);margin-right:12px}
 
     /* ===== 히어로 ===== */
     .hero{
@@ -47,32 +46,33 @@
       align-items:center;
       gap:24px;
       box-shadow:var(--shadow);
-      min-height:240px;
+      min-height:260px;
       background:linear-gradient(180deg, rgba(0,0,0,0.03), rgba(255,255,255,0.02));
     }
     .hero .bg{
-      position:absolute;inset:0;background-image:linear-gradient(180deg, rgba(0,0,0,0.25), rgba(0,0,0,0.05)), url('https://i.postimg.cc/HLNNKZz2/Kakao-Talk-20260108-165415641.jpg');
-      background-size:cover;background-position:center;filter:blur(2px) brightness(0.85);z-index:0;
+      position:absolute;inset:0;
+      background-image:linear-gradient(180deg, rgba(0,0,0,0.28), rgba(0,0,0,0.06)), url('https://i.postimg.cc/HLNNKZz2/Kakao-Talk-20260108-165415641.jpg');
+      background-size:cover;background-position:center;filter:blur(2px) brightness(0.78);z-index:0;
     }
     .hero-inner{position:relative;z-index:2;display:flex;align-items:center;justify-content:space-between;width:100%;padding:36px}
     .hero-left{max-width:68%}
-    .hero h1{margin:0;font-size:28px;line-height:1.15;color:#fff;text-shadow:0 6px 20px rgba(0,0,0,0.45)}
+    .hero h1{margin:0;font-size:28px;line-height:1.12;color:#fff;text-shadow:0 8px 28px rgba(0,0,0,0.5)}
     .hero p{margin:10px 0 0;color:#fff;opacity:0.95}
     .hero-ctas{margin-top:16px;display:flex;gap:12px;flex-wrap:wrap}
     .hero .pill{background:rgba(255,255,255,0.12);color:#fff;padding:10px 14px;border-radius:999px;border:1px solid rgba(255,255,255,0.08);font-weight:800}
 
-    /* 오른쪽 카드 */
     .hero-side{width:320px;background:rgba(255,255,255,0.98);padding:14px;border-radius:10px;box-shadow:0 8px 24px rgba(0,0,0,0.06);color:#111}
     .hero-side .title{font-weight:900;color:var(--accent);margin-bottom:8px}
     .hero-side .small{color:var(--muted);font-size:14px}
+    .hero-side .badge{display:inline-block;background:#f6f6f6;padding:8px 10px;border-radius:8px;margin-top:10px;font-weight:800;color:#333}
 
     /* ===== 제품 그리드 ===== */
     .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:18px;margin-top:18px}
     .card{background:var(--card);border-radius:14px;overflow:hidden;box-shadow:0 14px 36px rgba(16,16,16,0.06);transition:transform .18s ease,box-shadow .18s ease}
     .card:hover{transform:translateY(-8px);box-shadow:0 28px 60px rgba(16,16,16,0.12)}
-    .card .imgwrap{position:relative;height:220px;overflow:hidden}
-    .card img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .5s ease}
-    .card:hover img{transform:scale(1.04)}
+    .imgwrap{position:relative;height:220px;overflow:hidden}
+    .imgwrap img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .5s ease}
+    .card:hover .imgwrap img{transform:scale(1.04)}
     .ribbon{position:absolute;top:12px;left:12px;background:var(--accent);color:#fff;padding:8px 12px;border-radius:8px;font-weight:800;font-size:13px;box-shadow:0 6px 18px rgba(0,0,0,0.12)}
     .card-body{padding:14px;display:flex;flex-direction:column;gap:8px}
     .model{font-weight:900;font-size:18px}
@@ -88,6 +88,9 @@
     .review-card{background:var(--card);padding:14px;border-radius:12px;box-shadow:0 12px 30px rgba(0,0,0,0.06);margin-bottom:12px}
     .stars{color:#f6a623;font-weight:800}
 
+    /* ===== FAQ ===== */
+    .faq-block{margin-top:20px;background:var(--card);padding:16px;border-radius:12px;box-shadow:0 12px 30px rgba(0,0,0,0.06)}
+
     /* ===== 푸터 ===== */
     footer{margin-top:30px;padding:30px 0;text-align:center;color:var(--muted);font-size:14px}
 
@@ -100,7 +103,7 @@
     @media (max-width:480px){
       .brand{font-size:18px}
       .hero h1{font-size:20px}
-      .card .imgwrap{height:160px}
+      .imgwrap{height:160px}
     }
   </style>
 </head>
@@ -108,9 +111,11 @@
 
   <header>
     <div class="wrap topbar">
-      <div class="brand">제이원컴퍼니</div>
       <div style="display:flex;align-items:center;gap:12px">
-        <div class="topnote" style="margin-right:8px">영업 10:00 ~ 20:00 · 동탄/평택</div>
+        <div class="brand">제이원컴퍼니</div>
+        <div class="topnote">영업 10:00 ~ 20:00 · 동탄 · 평택</div>
+      </div>
+      <div style="display:flex;align-items:center;gap:12px">
         <a class="contact-btn call" href="tel:01044773005" aria-label="전화">📞 010-4477-3005</a>
         <a class="contact-btn kakao" href="https://open.kakao.com/o/sJO5ztai" target="_blank" rel="noopener noreferrer" aria-label="카카오">💬 카카오톡</a>
       </div>
@@ -135,16 +140,13 @@
 
         <aside class="hero-side" aria-hidden="false">
           <div class="title">상담 빠른 팁</div>
-          <div class="small" style="margin-top:8px">원하시는 모델·예산·방문매장을 알려주시면 상담이 더 빨라집니다.</div>
-          <div style="display:flex;gap:8px;margin-top:12px">
-            <div style="background:#f7f7f7;padding:8px;border-radius:8px;font-weight:800">영업 10:00~20:00</div>
-            <div style="background:#f7f7f7;padding:8px;border-radius:8px;font-weight:800">두 매장 운영</div>
-          </div>
+          <div class="small" style="margin-top:8px">원하시는 모델·예산·방문매장을 알려주시면 상담이 더 빠릅니다.</div>
+          <div class="badge">상담 우선 안내</div>
         </aside>
       </div>
     </section>
 
-    <!-- Product grid -->
+    <!-- 제품 그리드 -->
     <section class="grid" aria-label="기기 비교">
       <article class="card" aria-labelledby="p1">
         <div class="imgwrap">
@@ -205,13 +207,14 @@
       </div>
     </section>
 
-    <!-- FAQ (간단) -->
+    <!-- FAQ -->
     <section style="margin-top:20px">
-      <div style="background:var(--card);padding:16px;border-radius:12px;box-shadow:0 12px 30px rgba(0,0,0,0.06)">
+      <div class="faq-block">
         <h3 style="margin:0 0 8px;color:var(--accent)">자주 묻는 질문</h3>
         <div class="muted">Q. 정말 0원으로 가능한가요?<br/>A. 예시 조건 충족 시 가능하나 실제 금액은 상담 후 확정됩니다.</div>
       </div>
     </section>
+
   </main>
 
   <footer>
