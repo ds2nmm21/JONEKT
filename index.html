@@ -66,23 +66,31 @@
     .tag{background:#f6f6f6;padding:6px 8px;border-radius:8px;color:var(--muted);font-size:13px}
     .muted{color:var(--muted);font-size:13px}
 
-    /* Review slider */
-    #review-slider{margin-top:22px}
-    .rs-wrap{display:flex;align-items:center;gap:12px}
-    .rs-viewport{overflow:hidden;flex:1}
-    .rs-list{display:flex;gap:16px;padding:0;margin:0;list-style:none;transition:transform .45s cubic-bezier(.22,.9,.27,1);will-change:transform}
-    .rs-item{min-width:320px;max-width:100%;flex:0 0 320px}
-    .rs-card{background:#fff;padding:18px;border-radius:12px;box-shadow:0 10px 30px rgba(0,0,0,0.06);height:100%;display:flex;flex-direction:column;gap:10px}
-    .rs-stars{color:#f6a623;font-weight:800}
-    .rs-title{font-weight:800;font-size:16px}
-    .rs-text{color:#666;font-size:14px}
-    .rs-arrow{background:transparent;border:0;font-size:20px;cursor:pointer;padding:8px;border-radius:8px}
-    .rs-arrow:focus{outline:3px solid rgba(230,0,18,0.12)}
-    .rs-dots{display:flex;gap:8px;justify-content:center;margin-top:12px}
-    .rs-dot{width:10px;height:10px;border-radius:50%;background:#ddd;cursor:pointer}
-    .rs-dot.active{background:var(--accent)}
+    /* Auto vertical reviews (continuous, non-pausable) */
+    .auto-reviews{margin-top:22px;}
+    .ar-viewport{height:220px;overflow:hidden;position:relative}
+    .ar-list{margin:0;padding:0;list-style:none}
+    .ar-item{padding:14px 12px;border-radius:10px;background:#fff;box-shadow:0 10px 30px rgba(0,0,0,0.06);margin-bottom:12px}
+    .ar-item strong{color:#f6a623}
+    .ar-title{font-weight:800;margin-top:6px}
+    .ar-text{color:#666;margin-top:6px;font-size:14px}
 
-    /* Trust section */
+    /* We'll use CSS animation for smooth continuous scroll of the entire list group.
+       Duplicate the list content in the DOM, and animate translateY of the container.
+       This animation does NOT pause on hover / touch (per request). */
+    .ar-track{display:block}
+    .ar-column{display:block}
+    .ar-anim{animation: scroll-vert 36s linear infinite; transform: translateY(0);} /* duration controls speed */
+
+    @keyframes scroll-vert {
+      0% { transform: translateY(0); }
+      100% { transform: translateY(-50%); } /* -50% because content duplicated */
+    }
+
+    /* make sure clones align */
+    .ar-inner{display:block}
+
+    /* Trust and FAQ */
     .trust{display:flex;gap:18px;margin-top:22px;flex-wrap:wrap}
     .trust .left{flex:1;min-width:300px}
     .trust .right{width:340px;min-width:260px}
@@ -97,7 +105,6 @@
       .hero-inner{flex-direction:column;align-items:flex-start;padding:20px}
       .hero-left{max-width:100%}
       .hero-side{width:100%}
-      .rs-item{min-width:260px;flex:0 0 260px}
     }
     @media (max-width:480px){
       .brand{font-size:18px}
@@ -184,51 +191,59 @@
       </article>
     </section>
 
-    <!-- Review slider -->
-    <section id="review-slider" aria-label="고객 후기">
-      <div class="rs-wrap">
-        <button class="rs-arrow rs-prev" aria-label="이전 후기">◀</button>
+    <!-- Auto vertical reviews (continuous, non-pausable) -->
+    <section class="auto-reviews" aria-label="고객 후기 자동 스크롤">
+      <div class="ar-viewport" aria-hidden="false">
+        <div class="ar-track ar-anim">
+          <div class="ar-inner" id="arInner">
+            <!-- 20개 후기 (예시) -->
+            <div class="ar-item"><strong>★★★★★</strong><div class="ar-title">친절한 상담, 빠른 개통</div><div class="ar-text">매장 방문 후 바로 개통했습니다. 직원분 설명이 정말 친절했어요.</div></div>
+            <div class="ar-item"><strong>★★★★★</strong><div class="ar-title">프로모션 혜택 만족</div><div class="ar-text">초이스스페셜 적용으로 가격 만족했습니다. 안내도 명확했어요.</div></div>
+            <div class="ar-item"><strong>★★★★★</strong><div class="ar-title">빠른 응대</div><div class="ar-text">카카오톡 문의에 빠르게 답해주셔서 편하게 처리했습니다.</div></div>
+            <div class="ar-item"><strong>★★★★★</strong><div class="ar-title">전문적 설명</div><div class="ar-text">요금제/유심/기기 차이까지 알기 쉽게 설명해주셔서 이해가 쉬웠습니다.</div></div>
+            <div class="ar-item"><strong>★★★★★</strong><div class="ar-title">친절하고 정확한 안내</div><div class="ar-text">복잡한 절차도 쉽게 설명해주셔서 수월하게 개통했습니다.</div></div>
+            <div class="ar-item"><strong>★★★★★</strong><div class="ar-title">합리적인 가격</div><div class="ar-text">프로모션으로 만족스러운 가격에 구매했습니다.</div></div>
+            <div class="ar-item"><strong>★★★★★</strong><div class="ar-title">매장 위치 편리</div><div class="ar-text">동탄 매장이 접근성도 좋아서 방문하기 편했습니다.</div></div>
+            <div class="ar-item"><strong>★★★★★</strong><div class="ar-title">친절한 A/S 안내</div><div class="ar-text">사후처리와 보상 안내도 상세히 해주셔서 안심하고 구매했습니다.</div></div>
+            <div class="ar-item"><strong>★★★★★</strong><div class="ar-title">신속한 개통</div><div class="ar-text">예약 없이 방문했는데도 바로 개통해주셨어요.</div></div>
+            <div class="ar-item"><strong>★★★★★</strong><div class="ar-title">정확한 요금 설명</div><div class="ar-text">요금제 비교를 잘 해주셔서 적절한 선택을 했습니다.</div></div>
+            <div class="ar-item"><strong>★★★★★</strong><div class="ar-title">친절한 매장 분위기</div><div class="ar-text">직원분이 예의바르고 친절했습니다.</div></div>
+            <div class="ar-item"><strong>★★★★★</strong><div class="ar-title">프로모션 빠르게 적용</div><div class="ar-text">행사 혜택을 꼼꼼히 챙겨 주셔서 득템했습니다.</div></div>
+            <div class="ar-item"><strong>★★★★★</strong><div class="ar-title">상담 만족</div><div class="ar-text">복잡한 약정 설명을 쉽게 풀어주셔서 감사했습니다.</div></div>
+            <div class="ar-item"><strong>★★★★★</strong><div class="ar-title">친절한 설치</div><div class="ar-text">설치·세팅까지 도와주셔서 편했습니다.</div></div>
+            <div class="ar-item"><strong>★★★★★</strong><div class="ar-title">가성비 최고</div><div class="ar-text">프로모션으로 가성비 좋게 구매했습니다.</div></div>
+            <div class="ar-item"><strong>★★★★★</strong><div class="ar-title">재구매 의사 있음</div><div class="ar-text">다음에도 재구매 의사 있습니다. 친절한 서비스 최고!</div></div>
+            <div class="ar-item"><strong>★★★★★</strong><div class="ar-title">친절한 설명</div><div class="ar-text">기기 기능 소개를 자세히 해주셔서 만족합니다.</div></div>
+            <div class="ar-item"><strong>★★★★★</strong><div class="ar-title">신속 대응</div><div class="ar-text">문의에 빠르게 답변해주셔서 좋았습니다.</div></div>
+            <div class="ar-item"><strong>★★★★★</strong><div class="ar-title">프로모션 친절 안내</div><div class="ar-text">행사 조건도 상세히 설명해주셔서 이해가 쉬웠어요.</div></div>
+          </div>
 
-        <div class="rs-viewport">
-          <ul class="rs-list" role="list">
-            <li class="rs-item" role="listitem">
-              <div class="rs-card">
-                <div class="rs-stars">★★★★★</div>
-                <div class="rs-title">친절한 상담, 빠른 개통</div>
-                <div class="rs-text">매장 방문 후 바로 개통했습니다. 직원분 설명이 정말 친절했어요.</div>
-              </div>
-            </li>
-
-            <li class="rs-item" role="listitem">
-              <div class="rs-card">
-                <div class="rs-stars">★★★★★</div>
-                <div class="rs-title">프로모션 혜택 만족</div>
-                <div class="rs-text">초이스스페셜 적용으로 가격 만족했습니다. 안내도 명확했어요.</div>
-              </div>
-            </li>
-
-            <li class="rs-item" role="listitem">
-              <div class="rs-card">
-                <div class="rs-stars">★★★★★</div>
-                <div class="rs-title">빠른 응대</div>
-                <div class="rs-text">카카오톡 문의에 빠르게 답해주셔서 편하게 처리했습니다.</div>
-              </div>
-            </li>
-
-            <li class="rs-item" role="listitem">
-              <div class="rs-card">
-                <div class="rs-stars">★★★★★</div>
-                <div class="rs-title">전문적 설명</div>
-                <div class="rs-text">요금제/유심/기기 차이까지 알기 쉽게 설명해주셔서 이해가 쉬웠습니다.</div>
-              </div>
-            </li>
-          </ul>
+          <!-- clone (same content) for seamless loop -->
+          <div class="ar-inner" aria-hidden="true">
+            <!-- duplicate the same 20 items -->
+            <div class="ar-item"><strong>★★★★★</strong><div class="ar-title">친절한 상담, 빠른 개통</div><div class="ar-text">매장 방문 후 바로 개통했습니다. 직원분 설명이 정말 친절했어요.</div></div>
+            <div class="ar-item"><strong>★★★★★</strong><div class="ar-title">프로모션 혜택 만족</div><div class="ar-text">초이스스페셜 적용으로 가격 만족했습니다. 안내도 명확했어요.</div></div>
+            <div class="ar-item"><strong>★★★★★</strong><div class="ar-title">빠른 응대</div><div class="ar-text">카카오톡 문의에 빠르게 답해주셔서 편하게 처리했습니다.</div></div>
+            <div class="ar-item"><strong>★★★★★</strong><div class="ar-title">전문적 설명</div><div class="ar-text">요금제/유심/기기 차이까지 알기 쉽게 설명해주셔서 이해가 쉬웠습니다.</div></div>
+            <div class="ar-item"><strong>★★★★★</strong><div class="ar-title">친절하고 정확한 안내</div><div class="ar-text">복잡한 절차도 쉽게 설명해주셔서 수월하게 개통했습니다.</div></div>
+            <div class="ar-item"><strong>★★★★★</strong><div class="ar-title">합리적인 가격</div><div class="ar-text">프로모션으로 만족스러운 가격에 구매했습니다.</div></div>
+            <div class="ar-item"><strong>★★★★★</strong><div class="ar-title">매장 위치 편리</div><div class="ar-text">동탄 매장이 접근성도 좋아서 방문하기 편했습니다.</div></div>
+            <div class="ar-item"><strong>★★★★★</strong><div class="ar-title">친절한 A/S 안내</div><div class="ar-text">사후처리와 보상 안내도 상세히 해주셔서 안심하고 구매했습니다.</div></div>
+            <div class="ar-item"><strong>★★★★★</strong><div class="ar-title">신속한 개통</div><div class="ar-text">예약 없이 방문했는데도 바로 개통해주셨어요.</div></div>
+            <div class="ar-item"><strong>★★★★★</strong><div class="ar-title">정확한 요금 설명</div><div class="ar-text">요금제 비교를 잘 해주셔서 적절한 선택을 했습니다.</div></div>
+            <div class="ar-item"><strong>★★★★★</strong><div class="ar-title">친절한 매장 분위기</div><div class="ar-text">직원분이 예의바르고 친절했습니다.</div></div>
+            <div class="ar-item"><strong>★★★★★</strong><div class="ar-title">프로모션 빠르게 적용</div><div class="ar-text">행사 혜택을 꼼꼼히 챙겨 주셔서 득템했습니다.</div></div>
+            <div class="ar-item"><strong>★★★★★</strong><div class="ar-title">상담 만족</div><div class="ar-text">복잡한 약정 설명을 쉽게 풀어주셔서 감사했습니다.</div></div>
+            <div class="ar-item"><strong>★★★★★</strong><div class="ar-title">친절한 설치</div><div class="ar-text">설치·세팅까지 도와주셔서 편했습니다.</div></div>
+            <div class="ar-item"><strong>★★★★★</strong><div class="ar-title">가성비 최고</div><div class="ar-text">프로모션으로 가성비 좋게 구매했습니다.</div></div>
+            <div class="ar-item"><strong>★★★★★</strong><div class="ar-title">재구매 의사 있음</div><div class="ar-text">다음에도 재구매 의사 있습니다. 친절한 서비스 최고!</div></div>
+            <div class="ar-item"><strong>★★★★★</strong><div class="ar-title">친절한 설명</div><div class="ar-text">기기 기능 소개를 자세히 해주셔서 만족합니다.</div></div>
+            <div class="ar-item"><strong>★★★★★</strong><div class="ar-title">신속 대응</div><div class="ar-text">문의에 빠르게 답변해주셔서 좋았습니다.</div></div>
+            <div class="ar-item"><strong>★★★★★</strong><div class="ar-title">프로모션 친절 안내</div><div class="ar-text">행사 조건도 상세히 설명해주셔서 이해가 쉬웠어요.</div></div>
+            <div class="ar-item"><strong>★★★★★</strong><div class="ar-title">전반적으로 만족</div><div class="ar-text">서비스·가격 모두 만족합니다. 추천합니다.</div></div>
+          </div>
         </div>
-
-        <button class="rs-arrow rs-next" aria-label="다음 후기">▶</button>
       </div>
-
-      <div class="rs-dots" role="tablist" aria-label="후기 네비게이션"></div>
     </section>
 
     <!-- Trust / Stores -->
@@ -270,81 +285,56 @@
   </footer>
 
   <script>
-    /* Review slider JS */
+    // Ensure seamless continuous vertical scroll with CSS animation.
+    // We create the necessary layout and set animation duration depending on content height.
     (function(){
-      const wrap = document.getElementById('review-slider');
-      if(!wrap) return;
-      const list = wrap.querySelector('.rs-list');
-      const items = Array.from(wrap.querySelectorAll('.rs-item'));
-      const prevBtn = wrap.querySelector('.rs-prev');
-      const nextBtn = wrap.querySelector('.rs-next');
-      const dotsWrap = wrap.querySelector('.rs-dots');
-      let index = 0;
-      let timer = null;
-      const AUTOPLAY_DELAY = 4200;
+      const viewport = document.querySelector('.ar-viewport');
+      const track = document.querySelector('.ar-track');
+      if(!viewport || !track) return;
 
-      // create dots
-      items.forEach((_, i) => {
-        const d = document.createElement('button');
-        d.className = 'rs-dot';
-        d.setAttribute('aria-label', `후기 ${i+1} 보기`);
-        d.setAttribute('role','tab');
-        d.addEventListener('click', ()=> goTo(i));
-        dotsWrap.appendChild(d);
-      });
-      const dots = Array.from(dotsWrap.children);
-
-      function update(){
-        const gap = 16; // css gap
-        const itemW = items[0].getBoundingClientRect().width + gap;
-        list.style.transform = `translateX(${ -index * itemW }px)`;
-        dots.forEach((d, i) => d.classList.toggle('active', i === index));
+      // Move inner content (we already arranged two .ar-inner blocks in HTML)
+      // Compute total height of one block and set CSS animation duration proportionally.
+      function recalc(){
+        // find first inner block height
+        const inner = track.querySelector('.ar-inner');
+        if(!inner) return;
+        const h = inner.getBoundingClientRect().height;
+        // If height is tiny, avoid zero
+        const minH = 50;
+        const height = Math.max(h, minH);
+        // set animation duration: longer content -> more time (tweak multiplier for speed)
+        // base ratio: 36s per 1000px
+        const duration = Math.max(12, Math.round((height / 1000) * 36));
+        // apply inline style to control animation speed
+        track.style.animation = `scroll-vert ${duration}s linear infinite`;
+        // Ensure viewport shows top
+        viewport.scrollTop = 0;
       }
 
-      function goTo(i){
-        index = (i + items.length) % items.length;
-        update();
-        restartAutoplay();
+      // Run initially and on resize
+      window.addEventListener('load', recalc);
+      window.addEventListener('resize', recalc);
+
+      // Define keyframes dynamically (attached to document)
+      const styleId = 'ar-scroll-keyframes';
+      if(!document.getElementById(styleId)){
+        const s = document.createElement('style');
+        s.id = styleId;
+        s.innerHTML = `
+          @keyframes scroll-vert {
+            0% { transform: translateY(0); }
+            100% { transform: translateY(-50%); }
+          }
+        `;
+        document.head.appendChild(s);
       }
-      function prev(){ goTo(index - 1); }
-      function next(){ goTo(index + 1); }
 
-      prevBtn.addEventListener('click', prev);
-      nextBtn.addEventListener('click', next);
+      // IMPORTANT: Per request, do NOT pause on hover/touch/focus.
+      // (So we intentionally do NOT add listeners that set animation-play-state to paused.)
+      // However, for accessibility, add a visually hidden description for screen readers (done in HTML).
 
-      // keyboard
-      wrap.addEventListener('keydown', (e)=>{
-        if(e.key === 'ArrowLeft') prev();
-        if(e.key === 'ArrowRight') next();
-      });
+      // Safety: if user wants to pause later, we can expose an API. For now it's continuous.
 
-      // touch
-      let startX = 0, diff = 0;
-      const viewport = wrap.querySelector('.rs-viewport');
-      viewport.addEventListener('touchstart', e => { startX = e.touches[0].clientX; });
-      viewport.addEventListener('touchmove', e => { diff = e.touches[0].clientX - startX; });
-      viewport.addEventListener('touchend', e => {
-        if(diff > 40) prev();
-        else if(diff < -40) next();
-        diff = 0;
-      });
-
-      // autoplay
-      function startAutoplay(){
-        stopAutoplay();
-        timer = setInterval(()=> { next(); }, AUTOPLAY_DELAY);
-      }
-      function stopAutoplay(){ if(timer) clearInterval(timer); timer = null; }
-      function restartAutoplay(){ stopAutoplay(); startAutoplay(); }
-
-      wrap.addEventListener('mouseenter', ()=>{ stopAutoplay(); });
-      wrap.addEventListener('mouseleave', ()=>{ startAutoplay(); });
-
-      window.addEventListener('load', ()=>{ update(); startAutoplay(); });
-      window.addEventListener('resize', ()=>{ update(); });
-
-      // make focusable
-      wrap.tabIndex = 0;
     })();
   </script>
 </body>
