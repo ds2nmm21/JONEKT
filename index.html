@@ -105,7 +105,7 @@
 </head>
 <body>
 
-  <!-- base64 이미지(너가 준 값) -->
+  <!-- base64 이미지 (너가 준 전체 문자열) -->
   <script>
     const IMG_BASE64_FULL = "data:image/jpeg;base64,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";
   </script>
@@ -141,8 +141,8 @@
       <div class="hero-inner">
         <div class="hero-left">
           <div class="hero-panel">
-            <h1 class="hero-title">초이스스페셜 6개월 (월 61,000원 요금제 기준)</h1>
-            <p class="hero-desc">초이스스페셜 61,000원 요금제 6개월 유지 조건 기준으로 혜택이 적용됩니다. 정확한 금액·약정 조건은 상담 후 확정됩니다.</p>
+            <h1 class="hero-title">심플30GB (월 61,000원 요금제 기준)</h1>
+            <p class="hero-desc">심플30GB 61,000원 요금제 6개월 유지 조건 기준으로 혜택이 적용됩니다. 정확한 금액·약정 조건은 상담 후 확정됩니다.</p>
           </div>
 
           <div style="margin-top:12px">
@@ -154,7 +154,7 @@
         <aside class="hero-side" aria-hidden="false">
           <div style="font-weight:900;color:var(--accent)">상담 빠른 팁</div>
           <div style="color:var(--muted);margin-top:8px">원하시는 모델·예산·방문매장을 알려주시면 상담이 더 빨라집니다.</div>
-          <div style="margin-top:10px;font-size:13px;color:#333">요금제: 초이스스페셜 61,000원 · 유지기간: 6개월 기준</div>
+          <div style="margin-top:10px;font-size:13px;color:#333">요금제: 심플30GB 61,000원 · 유지기간: 6개월 기준</div>
         </aside>
       </div>
     </section>
@@ -186,17 +186,17 @@
     <section class="grid" aria-label="기기 비교" style="margin-top:12px">
       <article class="card">
         <div class="imgwrap"><img src="https://i.postimg.cc/HLNNKZz2/Kakao-Talk-20260108-165415641.jpg" alt="갤럭시 S25"></div>
-        <div class="card-body"><div class="model">갤럭시 S25</div><div style="margin-top:8px"><span class="price">기기값 0원</span><span class="tag">초이스스페셜 6개월 (월 61,000원 기준)</span></div><div style="margin-top:8px;color:var(--muted)">· 카드조건 및 재고에 따라 금액 상이</div></div>
+        <div class="card-body"><div class="model">갤럭시 S25</div><div style="margin-top:8px"><span class="price">기기값 0원</span><span class="tag">심플30GB 6개월 (월 61,000원 기준)</span></div><div style="margin-top:8px;color:var(--muted)">· 카드조건 및 재고에 따라 금액 상이</div></div>
       </article>
 
       <article class="card">
         <div class="imgwrap"><img src="https://i.postimg.cc/fTvrZT57/daunlodeu.jpg" alt="아이폰 17"></div>
-        <div class="card-body"><div class="model">아이폰 17</div><div style="margin-top:8px"><span class="price">기기값 0원</span><span class="tag">초이스스페셜 6개월 (월 61,000원 기준)</span></div><div style="margin-top:8px;color:var(--muted)">· 색상/용량·프로모션에 따라 달라집니다</div></div>
+        <div class="card-body"><div class="model">아이폰 17</div><div style="margin-top:8px"><span class="price">기기값 0원</span><span class="tag">심플30GB 6개월 (월 61,000원 기준)</span></div><div style="margin-top:8px;color:var(--muted)">· 색상/용량·프로모션에 따라 달라집니다</div></div>
       </article>
 
       <article class="card">
         <div class="imgwrap"><img src="https://i.postimg.cc/hGNCMJPS/Kakao-Talk-20260108-165415641-02.jpg" alt="갤럭시 Z 플립7"></div>
-        <div class="card-body"><div class="model">갤럭시 Z 플립7</div><div style="margin-top:8px"><span class="price">기기값 0원</span><span class="tag">초이스스페셜 6개월 (월 61,000원 기준)</span></div><div style="margin-top:8px;color:var(--muted)">· 제휴카드/할부 시 적용 가능</div></div>
+        <div class="card-body"><div class="model">갤럭시 Z 플립7</div><div style="margin-top:8px"><span class="price">기기값 0원</span><span class="tag">심플30GB 6개월 (월 61,000원 기준)</span></div><div style="margin-top:8px;color:var(--muted)">· 제휴카드/할부 시 적용 가능</div></div>
       </article>
     </section>
 
@@ -204,9 +204,9 @@
     <section class="auto-reviews" aria-label="고객 후기 자동 스크롤" style="margin-top:12px">
       <div class="ar-viewport"><div class="ar-track"><div class="ar-inner">
         <div class="ar-item"><div class="ar-stars">★★★★★</div><div class="ar-title">친절한 상담, 빠른 개통</div><div class="ar-text">매장 방문 후 바로 개통했습니다. 직원분 설명이 정말 친절했어요.</div></div>
-        <div class="ar-item"><div class="ar-stars">★★★★★</div><div class="ar-title">프로모션 혜택 만족</div><div class="ar-text">초이스스페셜 적용으로 가격 만족했습니다.</div></div>
+        <div class="ar-item"><div class="ar-stars">★★★★★</div><div class="ar-title">프로모션 혜택 만족</div><div class="ar-text">심플30GB 요금제 조건으로 혜택을 받았습니다.</div></div>
         <div class="ar-item"><div class="ar-stars">★★★★★</div><div class="ar-title">빠른 응대</div><div class="ar-text">카카오톡 문의에 빠르게 답해주셔서 편하게 처리했습니다.</div></div>
-        <div class="ar-item"><div class="ar-stars">★★★★★</div><div class="ar-title">전문적 설명</div><div class="ar-text">요금제/유심/기기 차이까지 알기 쉽게 설명해주셔서 이해가 쉬웠습니다.</div></div>
+        <div class="ar-item"><div class="ar-stars">★★★★★</div><div class="ar-title">전문적 설명</div><div class="ar-text">요금제·유심·기기 차이까지 알기 쉽게 설명해주셔서 이해가 쉬웠습니다.</div></div>
       </div><div class="ar-inner" aria-hidden="true"><!-- duplicate for loop --></div></div></div>
     </section>
 
@@ -232,14 +232,15 @@
   <script>
     // apply base64 images to logo and hero
     (function(){
-      const logo = document.getElementById('siteLogo');
-      const heroBg = document.getElementById('heroBg');
-      try {
+      try{
+        const logo = document.getElementById('siteLogo');
+        const heroBg = document.getElementById('heroBg');
         if(logo) logo.src = IMG_BASE64_FULL;
         if(heroBg) heroBg.style.backgroundImage = "linear-gradient(180deg, rgba(0,0,0,0.28), rgba(0,0,0,0.06)), url('" + IMG_BASE64_FULL + "')";
-      } catch(e){}
-      // fallback: if base64 blocked, do nothing (page still usable)
+      }catch(e){}
+      // fallback: if base64 blocked, set fallback images
       setTimeout(function(){
+        const logo = document.getElementById('siteLogo');
         if(logo && (logo.naturalWidth === 0 || logo.naturalHeight === 0)) {
           logo.src = "https://i.postimg.cc/HLNNKZz2/Kakao-Talk-20260108-165415641.jpg";
         }
@@ -262,4 +263,3 @@
   </script>
 </body>
 </html>
-
