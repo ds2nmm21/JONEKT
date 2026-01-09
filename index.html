@@ -30,25 +30,64 @@
       background:var(--bg);
       color:#111;
       font-size:var(--base);
-      line-height:1.45
+      line-height:1.45;
     }
-    a{text-decoration:none;color:inherit}
+    a{color:inherit;text-decoration:none}
     .wrap{max-width:var(--site-max);margin:0 auto;padding:0 var(--gutter)}
 
-    /* Header */
-    header{position:sticky;top:0;z-index:140;background:#fff;border-bottom:1px solid rgba(0,0,0,0.05)}
-    .topbar{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:10px 0}
-    .brand-row{display:flex;align-items:center;gap:12px}
-    .logo-wrap{width:64px;height:64px;border-radius:10px;overflow:hidden;box-shadow:0 6px 16px rgba(0,0,0,.08)}
-    .logo-wrap img{width:100%;height:100%;object-fit:contain}
-    .brand-title{font-weight:900;color:var(--accent);font-size:17px}
-    .brand-sub{font-size:12px;color:var(--muted)}
+    /* ================= Header ================= */
+    header{
+      position:sticky;
+      top:0;
+      z-index:100;
+      background:#fff;
+      border-bottom:1px solid rgba(0,0,0,0.05);
+    }
+    .topbar{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:12px;
+      padding:10px 0;
+    }
+    .brand-row{
+      display:flex;
+      align-items:center;
+      gap:12px;
+    }
+    .logo-wrap{
+      width:64px;
+      height:64px;
+      border-radius:10px;
+      overflow:hidden;
+      background:#fff;
+      box-shadow:0 6px 16px rgba(0,0,0,0.08);
+    }
+    .logo-wrap img{
+      width:100%;
+      height:100%;
+      object-fit:contain;
+    }
+    .brand-title{
+      font-weight:900;
+      color:var(--accent);
+      font-size:17px;
+    }
+    .brand-sub{
+      font-size:12px;
+      color:var(--muted);
+    }
 
-    .header-ctas{display:flex;gap:8px;flex-wrap:wrap}
+    .header-ctas{
+      display:flex;
+      gap:8px;
+      flex-wrap:wrap;
+    }
     .cta-btn{
       display:inline-flex;
       align-items:center;
       justify-content:center;
+      gap:6px;
       padding:10px 12px;
       border-radius:10px;
       font-weight:900;
@@ -57,74 +96,225 @@
       white-space:nowrap;
     }
     .cta-call{background:linear-gradient(180deg,var(--accent),var(--accent-dark));color:#fff}
-    .cta-kakao{background:var(--kt-yellow)}
+    .cta-kakao{background:var(--kt-yellow);color:#000}
     .cta-place{background:linear-gradient(180deg,var(--cta-green),#158a63);color:#fff}
 
-    /* Hero */
-    .hero{margin:14px 0;border-radius:12px;overflow:hidden;position:relative;min-height:220px;box-shadow:var(--shadow)}
-    .hero-bg{position:absolute;inset:0;background-size:cover;background-position:center;filter:brightness(.78)}
-    .hero-inner{position:relative;z-index:2;display:flex;gap:16px;padding:20px}
+    /* ================= Hero ================= */
+    .hero{
+      margin:14px 0;
+      border-radius:12px;
+      overflow:hidden;
+      position:relative;
+      box-shadow:var(--shadow);
+      min-height:220px;
+    }
+    .hero-bg{
+      position:absolute;
+      inset:0;
+      background-size:cover;
+      background-position:center;
+      filter:brightness(.78);
+    }
+    .hero-inner{
+      position:relative;
+      z-index:2;
+      display:flex;
+      justify-content:space-between;
+      gap:16px;
+      padding:20px;
+    }
     .hero-left{max-width:65%}
-    .hero-title{font-size:22px;color:#fff;font-weight:900;line-height:1.15}
-    .hero-desc{color:#fff;font-size:14px;margin-top:6px}
-    .hero-panel{background:rgba(0,0,0,.35);padding:14px;border-radius:10px}
-    .hero-side{width:300px;background:#fff;padding:14px;border-radius:10px}
+    .hero-panel{
+      background:rgba(0,0,0,.35);
+      padding:14px;
+      border-radius:10px;
+    }
+    .hero-title{
+      margin:0;
+      font-size:22px;
+      font-weight:900;
+      color:#fff;
+      line-height:1.15;
+    }
+    .hero-desc{
+      margin-top:6px;
+      font-size:14px;
+      color:#fff;
+    }
+    .hero-side{
+      width:300px;
+      background:#fff;
+      padding:14px;
+      border-radius:10px;
+      box-shadow:0 8px 20px rgba(0,0,0,.06);
+    }
 
-    /* Promo */
-    .promo-strip{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:12px}
-    .promo-card{background:#fff;padding:12px;border-radius:12px;box-shadow:var(--shadow)}
+    /* ================= Promo ================= */
+    .promo-strip{
+      display:grid;
+      grid-template-columns:repeat(4,1fr);
+      gap:12px;
+      margin-top:12px;
+    }
+    .promo-card{
+      background:#fff;
+      padding:12px;
+      border-radius:12px;
+      box-shadow:var(--shadow);
+    }
     .promo-title{font-weight:800;font-size:14px}
     .promo-desc{font-size:13px;color:var(--muted)}
 
-    /* Products */
-    .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:12px}
-    .card{background:#fff;border-radius:12px;overflow:hidden;box-shadow:var(--shadow)}
+    /* ================= Products ================= */
+    .grid{
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:12px;
+      margin-top:12px;
+    }
+    .card{
+      background:#fff;
+      border-radius:12px;
+      overflow:hidden;
+      box-shadow:var(--shadow);
+    }
     .imgwrap{height:180px}
     .imgwrap img{width:100%;height:100%;object-fit:cover}
     .card-body{padding:12px}
     .model{font-weight:900}
     .price{color:var(--accent);font-weight:900}
-    .tag{font-size:12px;color:#666;background:#f3f3f3;padding:4px 6px;border-radius:6px}
+    .tag{
+      display:inline-block;
+      background:#f3f3f3;
+      padding:4px 6px;
+      border-radius:6px;
+      font-size:12px;
+      color:#666;
+      margin-left:6px;
+    }
 
-    /* Reviews */
+    /* ================= Reviews ================= */
     .ar-viewport{height:180px;overflow:hidden}
-    .ar-item{background:#fff;padding:12px;border-radius:10px;box-shadow:var(--shadow);margin-bottom:10px}
+    .ar-item{
+      background:#fff;
+      padding:12px;
+      border-radius:10px;
+      box-shadow:var(--shadow);
+      margin-bottom:10px;
+    }
 
-    footer{margin-top:20px;padding:20px 0;font-size:13px;color:#777;text-align:center}
+    footer{
+      margin-top:20px;
+      padding:20px 0;
+      text-align:center;
+      font-size:13px;
+      color:#777;
+    }
 
-    /* ===================== */
-    /* 📱 모바일 전용 보정 */
-    /* ===================== */
+    /* ================================================= */
+    /* 📱 모바일 전용 (PC 절대 영향 없음) */
+    /* ================================================= */
     @media (max-width:768px){
 
       body{font-size:14px}
 
-      .topbar{flex-direction:column;align-items:flex-start}
-      .header-ctas{width:100%}
-      .cta-btn{flex:1}
+      .topbar{
+        flex-direction:column;
+        align-items:flex-start;
+      }
 
-      .hero{min-height:auto}
+      .header-ctas{
+        width:100%;
+      }
+      .cta-btn{
+        flex:1;
+      }
+
+      .hero{
+        min-height:auto;
+      }
       .hero-inner{
         flex-direction:column;
         padding:14px;
       }
-      .hero-left{max-width:100%}
-      .hero-title{font-size:18px}
-      .hero-desc{font-size:13px}
-      .hero-side{width:100%}
+      .hero-left{
+        max-width:100%;
+      }
+      .hero-title{
+        font-size:18px;
+      }
+      .hero-desc{
+        font-size:13px;
+      }
+      .hero-side{
+        width:100%;
+      }
 
-      .promo-strip{grid-template-columns:1fr}
-      .promo-card{padding:10px}
+      .promo-strip{
+        grid-template-columns:1fr;
+      }
 
-      .grid{grid-template-columns:1fr}
-      .imgwrap{height:160px}
+      .grid{
+        grid-template-columns:1fr;
+      }
+      .imgwrap{
+        height:160px;
+      }
 
-      .tag{display:block;margin-top:6px}
+      .tag{
+        display:block;
+        margin:6px 0 0;
+      }
     }
   </style>
 </head>
 
 <body>
-<!-- 👉 body 이하 JS / HTML은 네 기존 코드 그대로 유지 -->
+
+<header>
+  <div class="wrap topbar">
+    <div class="brand-row">
+      <div class="logo-wrap">
+        <img src="https://i.postimg.cc/HLNNKZz2/Kakao-Talk-20260108-165415641.jpg" alt="제이원컴퍼니 로고">
+      </div>
+      <div>
+        <div class="brand-title">제이원컴퍼니</div>
+        <div class="brand-sub">KT 공식 대리점 · 영업 10:00 ~ 20:00</div>
+      </div>
+    </div>
+
+    <div class="header-ctas">
+      <a class="cta-btn cta-place" href="#">동탄역 오시는길</a>
+      <a class="cta-btn cta-place" href="#">이충동 오시는길</a>
+      <a class="cta-btn cta-call" href="tel:01044773005">📞 전화</a>
+      <a class="cta-btn cta-kakao" href="#">💬 카카오</a>
+    </div>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <section class="hero">
+    <div class="hero-bg" style="background-image:url('https://i.postimg.cc/HLNNKZz2/Kakao-Talk-20260108-165415641.jpg')"></div>
+    <div class="hero-inner">
+      <div class="hero-left">
+        <div class="hero-panel">
+          <h1 class="hero-title">심플30GB (월 61,000원)</h1>
+          <p class="hero-desc">6개월 유지 조건 · 정확한 혜택은 상담 후 안내</p>
+        </div>
+      </div>
+      <aside class="hero-side">
+        <strong style="color:var(--accent)">빠른 상담 팁</strong>
+        <p style="margin-top:6px;color:var(--muted)">모델 / 예산 / 방문매장 알려주세요</p>
+      </aside>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  © 2026 제이원컴퍼니 · KT 공식 대리점
+</footer>
+
 </body>
 </html>
